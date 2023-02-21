@@ -1,0 +1,45 @@
+﻿@model FoodItem
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Food <small>Create</small></h5>
+            </div>
+            <div class="ibox-content">
+                <form action="@Url.Action("Create", "Foods")" 
+                method="post" role="form" autocomplete="off">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="RestaurantId" />
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label asp-for="Name">Name</label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <div class="col-sm-12">
+                            <div class="form-group">
+                                <label asp-for="Price">Price</label>
+                                <input asp-for="Price" class="form-control" />
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group text-right">
+                        <div>
+                            <a href="@Url.Action("Index", "Foods")" class="btn btn-white btn-sm">Cancel</a>
+                            <button class="btn btn-primary btn-sm" type="submit">Save</button>
+                        </div>
+                    </div>
+                    @Html.AntiForgeryToken()
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

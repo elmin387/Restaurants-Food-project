@@ -1,0 +1,25 @@
+﻿@model FoodItem
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Let us to suggest some delicous food today</p>
+    <a href="@Url.Action("Suggest", "Foods")" class="btn btn-outline-success">Suggest</a>
+</div>
+
+@if (Model.FoodId != null && Model.FoodId > 0)
+{
+    <div class="row mt-5">
+        <div class="card col-md-4 offset-4">
+            <img src="/images/food.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text">Price: @Model.Price</p>
+                <p class="card-text">Restaurant: @Model.RestaurantName</p>
+            </div>
+        </div>
+    </div>
+}

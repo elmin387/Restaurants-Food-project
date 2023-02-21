@@ -1,0 +1,23 @@
+﻿@model IEnumerable<RestaurantItem>
+
+<div class="row">
+   <div class="float-end mb-5">
+        <a href="@Url.Action("Create", "Restaurants")" class="btn btn-primary">Add new</a>
+   </div>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="card col-md-4">
+            <img src="/images/restaurant.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <p class="card-text">Address: @item.Address</p>
+                <p class="card-text">Phone: @item.Telephone</p>
+                <a href="@Url.Action("Edit", "Restaurants", new { id = item.RestaurantId})" class="btn btn-primary">Edit</a>
+            </div>
+        </div>
+    }
+</div>
+
